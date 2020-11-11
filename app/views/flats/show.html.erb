@@ -1,0 +1,46 @@
+<div class="container">
+
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://hips.hearstapps.com/esquireuk.cdnds.net/17/49/1512553283-742simphouse.jpg" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Home", flats_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "#{@flat.name}", flat_path(@flat.id), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Add a flat", new_flat_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://e7.pngegg.com/pngimages/29/734/png-clipart-cletus-spuckler-homer-simpson-patty-bouvier-dr-nick-barney-gumble-simpsons-mammal-heroes.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-container">
+    <h1> <%= @flat.name %></h1>
+
+    <p><strong>Description:</strong> &nbsp;&nbsp;&nbsp;&nbsp; <%= @flat.description.capitalize %></p>
+    <p><strong>Address:</strong> &nbsp;&nbsp; <%= @flat.address.capitalize %></p>
+    <p><strong>Number of Guests:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= @flat.number_of_guests %></p>
+    <p><strong>Price per night:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; £<%= @flat.price_per_night %></p>
+  </div>
+
+  <p><%= link_to 'Back', flats_path %></p>
+
+</div>

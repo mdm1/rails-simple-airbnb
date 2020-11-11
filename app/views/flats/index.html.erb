@@ -1,0 +1,51 @@
+<div class="container">
+
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://hips.hearstapps.com/esquireuk.cdnds.net/17/49/1512553283-742simphouse.jpg" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to "Home", flats_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "View a flat", flats_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Add a flat", new_flat_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://e7.pngegg.com/pngimages/29/734/png-clipart-cletus-spuckler-homer-simpson-patty-bouvier-dr-nick-barney-gumble-simpsons-mammal-heroes.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h1>All our Flats (<%= @flats.count %>)</h1>
+  <div class="cards-container">
+    <% @flats.each do |flat| %>
+      <div class="card-container">
+        <h2><%= flat.name %></h2>
+        <h3><%= flat.address %></h3>
+        <p><%= "👥: #{flat.number_of_guests} | ￡: #{flat.price_per_night}" %></p>
+        <div class="info-section">
+          <%= link_to 'More info', flat_path(flat.id)  %>
+          <%= link_to 'Remove', flat_path(flat.id), method: :delete,
+                data: { confirm: "Are you sure?" }  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
